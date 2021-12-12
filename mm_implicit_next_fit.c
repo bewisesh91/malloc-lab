@@ -80,7 +80,7 @@ static char* last_bp; // 마지막에 검사한 블록의 포인터
 /* mm_init - initialize the malloc package. */
 int mm_init(void){
     /* Create the initial empty heap */
-    if ((heap_listp = mem_sbrk(4 * WSIZE)) == (void *)-1)
+    if ((heap_listp = mem_sbrk(4 * WSIZE)) == (void *) - 1)
         return -1;
     PUT(heap_listp, 0);                            // Alignment padding
     PUT(heap_listp + (1 * WSIZE), PACK(DSIZE, 1)); // Prologue header
