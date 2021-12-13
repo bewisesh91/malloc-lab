@@ -8,7 +8,13 @@ HANDINDIR = /afs/cs.cmu.edu/academic/class/15213-f01/malloclab/handin
 CC = gcc
 CFLAGS = -Wall -O2 -m32
 
-OBJS = mdriver.o mm.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
+# implicit_first_fit
+# OBJS = mdriver.o mm.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
+# implicit_next_fit
+# OBJS = mdriver.o mm_implicit_next_fit.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
+
+# seglist
+OBJS = mdriver.o mm_seglist.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
 
 mdriver: $(OBJS)
 	$(CC) $(CFLAGS) -o mdriver $(OBJS)
