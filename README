@@ -1,3 +1,35 @@
+# Malloc 구현노트 #
+## Malloc 관련 주요 개념 ## 
+### 동적 메모리 할당 ###
+
+- 동적 메모리 할당이란 힙(Heap) 프로세스의 가상 메모리 영역을 이용하여 프로그램을 실행하는 중간에 메모리를 할당 받는 것을 의미한다.
+
+- 동적 메모리 할당기의 유형
+
+
+	- **명시적 할당기 Explicit Allocator**
+		
+		> Application이 **직접 메모리를 할당하고 또 반환한다.**
+		
+			C 표준 라이브러리의 **malloc 패키지(malloc()과 free())**
+		
+	- **묵시적 할당기 Implicit Allocator**
+		
+		> Application이 메모리를 할당하지만 **반환은 할당기가 자동으로 처리한다.**
+		
+			Garbage Collector라고도 부르며, 자바 같은 상위수준 언어들은 자동으로 사용하지 않은 Allocated block들을 반환하는 방식을 사용하는데, 이를 garbage collection이라고 한다.
+
+
+- 메모리 단편화
+	- 가용 메모리가 할당 요청을 만족시키지 못했을 때 나타나는, 나쁜 힙 이용도의 원인이 되는 현상.
+		- **내부 단편화 Internal Fragmentation**
+			> 내부 단편화는 **할당된 블록이 데이터 자체보다 클 때** 발생한다.
+	    
+		- **외부 단편화 External Fragmentation**
+    		> 힙 전체로 봤을 때는 할당 요청을 만족할 만한 메모리 공간이 있지만, **각각의 가용 블록들이 이 요청을 처리할 만큼 크지 않을 때** 발생한다.
+
+
+
 #####################################################################
 # CS:APP Malloc Lab
 # Handout files for students
@@ -49,4 +81,5 @@ The -V option prints out helpful tracing and summary information.
 To get a list of the driver flags:
 
 	unix> mdriver -h
+
 

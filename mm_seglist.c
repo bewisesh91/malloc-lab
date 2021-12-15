@@ -75,7 +75,6 @@ team_t team = {
 #define PRED_PTR(ptr) ((char *)(ptr))
 #define SUCC_PTR(ptr) ((char *)(ptr) + WSIZE)
 
-// 가용블록 리스트의 이전 포인터와 다음 포인터
 #define PRED(bp) (*(char **)(bp))
 #define SUCC(ptr) (*(char **)(SUCC_PTR(ptr)))
 
@@ -236,10 +235,7 @@ static void delete_node(void *ptr)
     return;
 }
 
-/*
- * mm_malloc - Allocate a block by incrementing the brk pointer.
- *     Always allocate a block whose size is a multiple of the alignment.
- */
+
 void *mm_malloc(size_t size)
 {
     size_t asize;      // Adjusted block size

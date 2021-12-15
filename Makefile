@@ -10,14 +10,18 @@ CFLAGS = -Wall -O2 -m32
 
 # implicit_first_fit
 # OBJS = mdriver.o mm.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
+
 # implicit_next_fit
 # OBJS = mdriver.o mm_implicit_next_fit.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
 
+# explicit
+# OBJS = mdriver.o mm_explicit2.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
+
 # seglist
-OBJS = mdriver.o mm_seglist.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
+OBJS = mdriver.o mm_segrelist.o memlib.o fsecs.o fcyc.o clock.o ftimer.o
 
 mdriver: $(OBJS)
-	$(CC) $(CFLAGS) -o mdriver $(OBJS)
+	$(CC) $(CFLAGS) -o mdriver $(OBJS) -fsanitize=address
 
 mdriver.o: mdriver.c fsecs.h fcyc.h clock.h memlib.h config.h mm.h
 memlib.o: memlib.c memlib.h
